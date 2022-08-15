@@ -6,16 +6,12 @@ const formatElementText = (element: string) => {
 
 const getTrueTimeInstalled = (timeInstalled: string) => {
   let trueTimeInstalled = timeInstalled;
-  //remove About
   trueTimeInstalled = trueTimeInstalled.replace('About', '');
   trueTimeInstalled = trueTimeInstalled.replace('Over', '');
   trueTimeInstalled.trim();
 
-  // pull out the number from the string
   const timeInstalledNumber = parseInt(trueTimeInstalled);
 
-  // get the time unit from the string by getting the text after the number in the string
-  // do this by converting the number to a string and getting the text after the number
   const timeInstalledUnit = trueTimeInstalled
     .substring(trueTimeInstalled
     .indexOf(
@@ -131,8 +127,6 @@ const getReviewsFromPage = (page: cheerio.Root) => {
       console.log(`Error: Review ${reviewId ? reviewId : ''} not added to array`);
     }
   });
-
-  //console.log(`${reviewsArray.length} reviews added to array`);
 
   return reviewsArray;
 }
